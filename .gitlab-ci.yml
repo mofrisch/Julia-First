@@ -25,4 +25,4 @@ default:
 #     - master
 
 after_script:
-    - bash <(curl -s https://codecov.io/bash)
+    - bash <(curl -s https://codecov.io/bash) -t 58d0961c92d44c1ea1d4f84db4744340
