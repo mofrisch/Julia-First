@@ -1,4 +1,4 @@
-image: julia:1.5               # image comes from Docker hub
+image: julia:1.5 # image comes from Docker hub
 
 before_script:
   # workaround for https://github.com/JuliaDocs/Documenter.jl/issues/686
@@ -10,7 +10,7 @@ default:
     - julia --project=@. -e "import Pkg; Pkg.test(; coverage = true)"
     # - julia --project=test/coverage -e 'import Pkg; Pkg.instantiate()'
     # - julia --project=test/coverage test/coverage/coverage-summary.jl
-    - julia --project=test/coverage -e 'using Coverage; Codecov.submit(process_folder())'
+    - julia --project=@. -e 'using Coverage; Codecov.submit(process_folder())'
 
 pages:
   stage: deploy
@@ -22,5 +22,4 @@ pages:
     paths:
       - public
   only:
-  - master
-
+    - master
