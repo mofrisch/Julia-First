@@ -8,8 +8,9 @@ before_script:
 default:
   script:
     - julia --project=@. -e "import Pkg; Pkg.test(; coverage = true)"
-    - julia --project=test/coverage -e 'import Pkg; Pkg.instantiate()'
-    - julia --project=test/coverage test/coverage/coverage-summary.jl
+    # - julia --project=test/coverage -e 'import Pkg; Pkg.instantiate()'
+    # - julia --project=test/coverage test/coverage/coverage-summary.jl
+    - julia -e 'using Pkg; cd(Pkg.dir("TestPackage")); using Coverage; Codecov.submit(process_folder())'
 
 pages:
   stage: deploy
