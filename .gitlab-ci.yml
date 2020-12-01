@@ -8,8 +8,8 @@ before_script:
 default:
   script:
     - julia --project=@. -e "import Pkg; Pkg.test(; coverage = true)"
-    # - julia --project=test/coverage -e 'import Pkg; Pkg.instantiate()'
-    # - julia --project=test/coverage test/coverage/coverage-summary.jl
+    - julia --project=test/coverage -e 'import Pkg; Pkg.instantiate()'
+    - julia --project=test/coverage test/coverage/coverage-summary.jl
     # - julia --project=@. -e 'using Coverage; Codecov.submit(process_folder())'
 
 # pages:
@@ -25,4 +25,4 @@ default:
 #     - master
 
 after_script:
-  - julia -e 'using Pkg; Pkg.add("Coverage"); using Coverage; Codecov.submit_local(process_folder())'
+# - julia -e 'using Pkg; Pkg.add("Coverage"); using Coverage; '

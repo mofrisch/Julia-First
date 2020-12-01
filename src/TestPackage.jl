@@ -1,7 +1,7 @@
 module TestPackage
 using SpecialFunctions
 
-export mySpecialFunction
+export mySpecialFunction, mySpecialFunction2, greet
 
 function greet()
     print("Hello World!")
